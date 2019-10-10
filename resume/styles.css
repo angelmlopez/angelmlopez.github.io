@@ -1,0 +1,53 @@
+#name {
+  text-align: center;
+  font-size: 50px;
+  padding: 0%;
+  background-color: gray;
+  color: white;
+}
+#outterFrame {
+  display: grid;
+  grid-template-columns: 33% 66%;
+  width: 60%;
+  margin: auto;
+}
+#img {
+  width: 290px;
+  height: 190px;
+}
+#myBio {
+  font-size: 16px;
+  text-align: justify;
+  width: 98%;
+}
+
+#info {
+  /*Creating a grid layout*/
+  /* display: grid; */
+  /*Making a template of 3 sections all evenly sized to each other */
+  /* grid-template-columns: repeat(3,1fr); */
+  text-align: center;
+  padding: 10% 0% 10% 0%;
+  background-color: gray;
+  color: white;
+}
+
+#education {
+  text-align: left;
+  margin-left: 10%;
+}
+
+#clearance {
+  text-align: left;
+  margin-left: 10%;
+}
+
+#tech {
+  text-align: left;
+  margin-left: 10%;
+}
+
+#experience {
+  text-align: left;
+  margin-left: 10%;
+}
