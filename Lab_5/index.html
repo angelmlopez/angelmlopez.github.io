@@ -281,7 +281,11 @@
     
     /*This function displays 50 random country names*/
     function getNames () {
+      var namelist = countries.map(function (el) { return el.name; });
+      sessionStorage.setItem('key',countries.toString);
       
+      document.getElementsByClassName("instructions").innerHTML =
+       JSON.stringify(namelist, null, 4);
       // text = "<ol>";
       // for (i = 0; i < 50; i++) {
       //   var randoNumber = Math.floor(Math.random()*countries.length);
@@ -291,11 +295,11 @@
 
       //This is how I got the function to display everthing in the console
       //note that I only iterate 50 times
-       for (i=0; i<50; i++){
-         //getting a random number within the length of countries
-         var randoNumber = Math.floor(Math.random()*countries.length);
-         console.log(countries[randoNumber]["name"]);
-       }//end for loop
+      //  for (i=0; i<50; i++){
+      //    //getting a random number within the length of countries
+      //    var randoNumber = Math.floor(Math.random()*countries.length);
+      //    console.log(countries[randoNumber]["name"]);
+      // }//end for loop
    
     }//end funcion
 
@@ -317,6 +321,7 @@
 
     //   instructions.appendChild(el);
     // }
+
   </script>
 </body>
 
