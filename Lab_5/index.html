@@ -283,9 +283,9 @@
     function getNames () {
       var namelist = countries.map(function (el) { return el.name; });
       sessionStorage.setItem('key',countries.toString);
-      
-      document.getElementsByClassName("instructions").innerHTML =
-       JSON.stringify(namelist, null, 4);
+      text = JSON.stringify(namelist, null, 4);
+      mainList = JSON.parse(text);
+      document.querySelector('.instuctions').innerHTML = mainList;
       // text = "<ol>";
       // for (i = 0; i < 50; i++) {
       //   var randoNumber = Math.floor(Math.random()*countries.length);
