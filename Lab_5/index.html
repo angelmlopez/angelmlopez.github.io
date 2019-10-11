@@ -282,11 +282,10 @@
     /*This function displays 50 random country names*/
     function getNames () {
       var namelist = countries.map(function (el) { return el.name; });
-      // sessionStorage.setItem('key',countries.toString);
       text = JSON.stringify(namelist, null, 1);
-      
       mainList = JSON.parse(text);
-      document.querySelector('.instuctions').innerHTML = mainList;
+      sessionStorage.setItem('key',mainList);
+      document.querySelector('.instuctions').innerHTML = 'key';
       // text = "<ol>";
       // for (i = 0; i < 50; i++) {
       //   var randoNumber = Math.floor(Math.random()*countries.length);
