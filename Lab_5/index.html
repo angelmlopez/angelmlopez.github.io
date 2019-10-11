@@ -282,8 +282,9 @@
     /*This function displays 50 random country names*/
     function getNames () {
       var namelist = countries.map(function (el) { return el.name; });
-      sessionStorage.setItem('key',countries.toString);
-      text = JSON.stringify(namelist, null, 4);
+      // sessionStorage.setItem('key',countries.toString);
+      text = JSON.stringify(namelist, null, 1);
+      
       mainList = JSON.parse(text);
       document.querySelector('.instuctions').innerHTML = mainList;
       // text = "<ol>";
