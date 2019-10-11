@@ -285,7 +285,7 @@
       sessionStorage.setItem('names', countries.map(function (el) { return el.name; }));
       
       //turning the list to text
-      text = sessionStorage.getItem('names');
+      text = JSON.stringify(sessionStorage.getItem('names'), null, 1);
       
       mainList = JSON.parse(text);
 
