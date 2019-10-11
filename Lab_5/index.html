@@ -284,9 +284,10 @@
       //making a list of names in countries
       sessionStorage.setItem('names', JSON.stringify(countries.map(function (el) { return el.name; }),null,1));
       
-      //turning the list to text
+      //getting the text from session
       text = sessionStorage.getItem('names');
       
+      //parsing the text into an object
       mainList = JSON.parse(text);
 
       //concatinating the mainList into 50 randomly selected <li>
@@ -297,10 +298,10 @@
         mainList.splice(randoNumber,1);//removing/preventing duplicates
       }
       text2 += "</ol>";
-
+      //displaying inside of the element
       document.querySelector('.instructions').innerHTML = text2;
       
-    }//end funcion
+    }//end getNames() function
 
     // function clickMe() {
     //   const json = sessionStorage.getItem('countries_arr');
