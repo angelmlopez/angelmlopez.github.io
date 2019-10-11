@@ -281,30 +281,26 @@
     
     /*This function displays 50 random country names*/
     function getNames () {
+      //making a list of names in countries
       var namelist = countries.map(function (el) { return el.name; });
-      text = JSON.stringify(namelist, null, 1);
-      mainList = JSON.parse(text);
-
+      
       //concatinating the mainList into 50 randomly selected <li>
       text2 = "<ol>";
       for (i = 0; i < 50; i++) {
         var randoNumber = Math.floor(Math.random()*countries.length);
-        text2 += "<li>" + mainList[randoNumber] + "</li>";
-        mainList.splice(randoNumber,1);//removing/preventing duplicates
+        text2 += "<li>" + nameList[randoNumber] + "</li>";
+        nameList.splice(randoNumber,1);//removing/preventing duplicates
       }
       text2 += "</ol>";
 
-      sessionStorage.setItem('key',text2);
+      // //turning the list to text
+      // text = JSON.stringify(namelist, null, 1);
+
+      // mainList = JSON.parse(text);
+
+      
       document.querySelector('.instructions').innerHTML = text2;
       
-      //This is how I got the function to display everthing in the console
-      //note that I only iterate 50 times
-      //  for (i=0; i<50; i++){
-      //    //getting a random number within the length of countries
-      //    var randoNumber = Math.floor(Math.random()*countries.length);
-      //    console.log(countries[randoNumber]["name"]);
-      // }//end for loop
-   
     }//end funcion
 
     // function clickMe() {
