@@ -287,7 +287,7 @@
       //turning the list to text
       text = JSON.stringify(sessionStorage.getItem('names'), null, 1);
       
-      mainList = JSON.parse(text);
+      mainList = JSON.parse('['+text+']');
 
       //concatinating the mainList into 50 randomly selected <li>
       text2 = "<ol>";
