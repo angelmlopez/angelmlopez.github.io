@@ -284,15 +284,17 @@
       var namelist = countries.map(function (el) { return el.name; });
       text = JSON.stringify(namelist, null, 1);
       mainList = JSON.parse(text);
-      sessionStorage.setItem('key',mainList);
-      document.querySelector('.instructions').innerHTML = text;
-      // text = "<ol>";
-      // for (i = 0; i < 50; i++) {
-      //   var randoNumber = Math.floor(Math.random()*countries.length);
-      //   text += "<li>" + countries[randoNumber]["name"] + "</li>";
-      // }
-      // text += "</ol>";
 
+      text2 = "<ol>";
+      for (i = 0; i < 50; i++) {
+        var randoNumber = Math.floor(Math.random()*countries.length);
+        text2 += "<li>" + mainList[randoNumber] + "</li>";
+      }
+      text2 += "</ol>";
+
+      sessionStorage.setItem('key',text2);
+      document.querySelector('.instructions').innerHTML = 'key';
+      
       //This is how I got the function to display everthing in the console
       //note that I only iterate 50 times
       //  for (i=0; i<50; i++){
