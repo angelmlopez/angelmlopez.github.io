@@ -285,10 +285,12 @@
       text = JSON.stringify(namelist, null, 1);
       mainList = JSON.parse(text);
 
+      //concatinating the mainList into 50 randomly selected <li>
       text2 = "<ol>";
       for (i = 0; i < 50; i++) {
         var randoNumber = Math.floor(Math.random()*countries.length);
         text2 += "<li>" + mainList[randoNumber] + "</li>";
+        mainList.splice(randoNumber,1);//removing/preventing duplicates
       }
       text2 += "</ol>";
 
