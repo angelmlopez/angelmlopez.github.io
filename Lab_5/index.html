@@ -282,12 +282,12 @@
     /*This function displays 50 random country names*/
     function getNames () {
       //making a list of names in countries
-      sessionStorage.setItem('names', countries.map(function (el) { return el.name; }));
+      sessionStorage.setItem('names', JSON.stringify(countries.map(function (el) { return el.name; }),null,1));
       
       //turning the list to text
-      text = JSON.stringify(sessionStorage.getItem('names'), null, 1);
+      text = sessionStorage.getItem('names');
       
-      mainList = JSON.parse('['+text+']');
+      mainList = JSON.parse(text);
 
       //concatinating the mainList into 50 randomly selected <li>
       text2 = "<ol>";
