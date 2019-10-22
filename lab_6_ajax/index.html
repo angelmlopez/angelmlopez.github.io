@@ -20,8 +20,20 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(res => res.map(c => c.code))
-        .then(codes => document.querySelector(".content").innerText = codes);
-    }
+        // .then(codes => document.querySelector(".content").innerText = codes);
+        .then(codes=> {
+          const a = codes.map((item)=> {
+            console.log("i'm a demo!", item);
+          })
+
+          console.log("the returned values of a", a);
+
+          return codes;
+        })
+        .then(thing => {
+          document.querySelector(".content").innerText = thing;
+        })
+    
   </script>
 </body>
 
