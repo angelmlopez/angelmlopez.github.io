@@ -282,7 +282,7 @@
     /*This function displays 50 random country names*/
     function getNames () {
       //making a list of names in countries
-      sessionStorage.setItem('names', JSON.stringify(countries.map(function (el) { return el.name; }),null,1));
+      sessionStorage.setItem('names', JSON.stringify(countries.map(function (el) { return el  .name; }),null,1));
       
       //getting the text from session
       text = sessionStorage.getItem('names');
