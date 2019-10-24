@@ -19,20 +19,31 @@
     function loadData() {
       fetch('ajax_sample.json')
         .then(res => res.json())
-        .then(res => res.map(c => c.code))
+        //outputting the name and code of the mapped countries list
+        .then(res => res.map(countries => countries.name +', '+ countries.code))
         // .then(codes => document.querySelector(".content").innerText = codes);
         .then(codes=> {
-          const a = codes.map((item)=> {
-            console.log("i'm a demo!", item);
+
+          codes.map((item) => {   
+            
+            //concatinating 15 randomly selected codes list items into an ordered list             
+            text2 = "<ol>";
+            for (i = 0; i < 15; i++) {
+              //creating a random number within the length of the 'codes' list
+              var randoNumber = Math.floor(Math.random()*codes.length);
+              text2 += "<li>" + codes[randoNumber] + "</li>";
+              //removing list items and preventing duplicates
+              codes.splice(randoNumber,1);
+              }//END for loop
+            text2 += "</ol>";
+            })
+          
+          return text2;
+        })
+
+         .then(codes => {
+           document.querySelector(".content").innerHTML = codes;
           })
-
-          console.log("the returned values of a", a);
-
-          return codes;
-        })
-        .then(thing => {
-          document.querySelector(".content").innerText = thing;
-        })
     }
   </script>
 </body>
