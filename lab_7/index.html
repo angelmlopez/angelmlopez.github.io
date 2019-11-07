@@ -38,28 +38,27 @@
           }) //end then
 
           //.then(data => (document.querySelector(".content").innerHTML = data));
-
+ 
           .then(res => {
             var x = document.getElementsByClassName("header");
 
             //creating a random number
             var randoNumber = Math.floor(Math.random() * res.length);
             var rTitle = res[randoNumber].title;
-            var rID = res[randoNumber].route_id;        
+            var rID = res[randoNumber].route_id;
 
-            function checkMatch (arg1,arg2){
-              if (arg1.search(arg2)==-1) {
+            function checkMatch(arg1, arg2) {
+              if (arg1.search(arg2) == -1) {
                 return arg1;
-              }else if(arg1.match(rID).length >= 1){
-                arg1 = arg1.replace(rID,'');
+              } else if (arg1.match(rID).length >= 1) {
+                arg1 = arg1.replace(rID, "");
                 return arg1;
               }
             }
 
-            rTitle = checkMatch(rTitle,rID);
+            rTitle = checkMatch(rTitle, rID);
 
-            x[0].innerHTML =
-              "UMD Bus Route " + rID + " " +rTitle;
+            x[0].innerHTML = "UMD Bus Route " + rID + " " + rTitle;
 
             console.log("response: ", res);
           });
