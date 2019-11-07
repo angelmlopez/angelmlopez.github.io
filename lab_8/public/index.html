@@ -18,62 +18,62 @@
   <script>
     function loadData() {
       
-      fetch("https://api.umd.io/v0/bus/routes")
-          .then(res => res.json())
+      // fetch("https://api.umd.io/v0/bus/routes")
+      //     .then(res => res.json())
 
-          .then(res => res.map(r => r))
+      //     .then(res => res.map(r => r))
 
-          .then(r => {
-            text2 = "<ul>";
-            for (i = 0; i < r.length; i++) {
-              //concatinating route title and id as list items
-              text2 +=
-                "<li> Route:" +
-                r[i].title +
-                " (ID:" +
-                r[i].route_id +
-                ") </li>";
-            } //END for loop
-            text2 += "</ul>";
-            document.querySelector(".content").innerHTML = text2;
-            return r;
-          }) //end then
+      //     .then(r => {
+      //       text2 = "<ul>";
+      //       for (i = 0; i < r.length; i++) {
+      //         //concatinating route title and id as list items
+      //         text2 +=
+      //           "<li> Route:" +
+      //           r[i].title +
+      //           " (ID:" +
+      //           r[i].route_id +
+      //           ") </li>";
+      //       } //END for loop
+      //       text2 += "</ul>";
+      //       document.querySelector(".content").innerHTML = text2;
+      //       return r;
+      //     }) //end then
 
-          //.then(data => (document.querySelector(".content").innerHTML = data));
+      //     //.then(data => (document.querySelector(".content").innerHTML = data));
  
-          .then(res => {
-            var x = document.getElementsByClassName("header");
+      //     .then(res => {
+      //       var x = document.getElementsByClassName("header");
 
-            //creating a random number
-            var randoNumber = Math.floor(Math.random() * res.length);
-            var rTitle = res[randoNumber].title;
-            var rID = res[randoNumber].route_id;
+      //       //creating a random number
+      //       var randoNumber = Math.floor(Math.random() * res.length);
+      //       var rTitle = res[randoNumber].title;
+      //       var rID = res[randoNumber].route_id;
 
-            function checkMatch(arg1, arg2) {
-              if (arg1.search(arg2) == -1) {
-                return arg1;
-              } else if (arg1.match(rID).length >= 1) {
-                arg1 = arg1.replace(rID, "");
-                return arg1;
-              }
-            }
+      //       function checkMatch(arg1, arg2) {
+      //         if (arg1.search(arg2) == -1) {
+      //           return arg1;
+      //         } else if (arg1.match(rID).length >= 1) {
+      //           arg1 = arg1.replace(rID, "");
+      //           return arg1;
+      //         }
+      //       }
 
-            rTitle = checkMatch(rTitle, rID);
+      //       rTitle = checkMatch(rTitle, rID);
 
-            x[0].innerHTML = "UMD Bus Route " + rID + " " + rTitle;
+      //       x[0].innerHTML = "UMD Bus Route " + rID + " " + rTitle;
 
-            console.log("response: ", res);
-          });
+      //       console.log("response: ", res);
+      //     });
       
-      // console.log('fetch'); // confirm code is running on click
-      // fetch('/api')
-      //   .then(res => res.json())
-      //   .then(res => {
-      //     console.log(res); // logging step to check what we got
-      //     return res;
-      //   })
-      //   .then(res => res.data.map(c => c.route_id))
-      //   .then(codes => document.querySelector(".content").innerText = codes);
+      console.log('fetch'); // confirm code is running on click
+      fetch('/api')
+        .then(res => res.json())
+        .then(res => {
+          console.log(res); // logging step to check what we got
+          return res;
+        })
+        .then(res => res.data.map(c => c.route_id))
+        .then(codes => document.querySelector(".content").innerText = codes);
 
 
     }
